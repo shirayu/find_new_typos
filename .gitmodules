@@ -1,0 +1,6 @@
+[submodule "english-words"]
+	path = english-words
+	url = git@github.com:dwyl/english-words.git
+[submodule "typos"]
+	path = typos
+	url = git@github.com:crate-ci/typos.git
