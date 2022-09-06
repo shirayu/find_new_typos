@@ -7,7 +7,7 @@ by using [GitHub Typo Corpus](https://github.com/mhagiwara/github-typo-corpus)
 ## Preparation
 
 ```bash
-poetry update
+poetry install --only main
 wget https://github-typo-corpus.s3.amazonaws.com/data/github-typo-corpus.v1.0.0.jsonl.gz
 ```
 
