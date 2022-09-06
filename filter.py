@@ -45,7 +45,7 @@ def operation(
             _freq = int(items[0])
             pair = items[-1].split(",")
 
-            if _freq < 5:
+            if _freq < freq:
                 continue
             if len(pair[0]) < length or pair[0] in words:
                 continue
