@@ -12,6 +12,7 @@ ALLOW_SET = {
     "zplugin",
     "manged",
     "connexions",
+    "thead",
 }
 
 
