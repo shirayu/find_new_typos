@@ -8,13 +8,6 @@ from typing import Optional
 from inflector import Inflector
 from rapidfuzz.distance import Levenshtein
 
-ALLOW_SET = {
-    "zplugin",
-    "manged",
-    "connexions",
-    "thead",
-}
-
 
 def exclude(old, new) -> bool:
     if Inflector().pluralize(new) == old:
@@ -28,6 +21,7 @@ def operation(
     path_in: Path,
     path_out: Path,
     path_word: Optional[Path],
+    path_allow: Optional[Path],
     distance: int,
     freq: int,
     length: int,
@@ -39,6 +33,11 @@ def operation(
                 words.add(line.strip().lower())
 
     old2new = defaultdict(set)
+    allow_set = set()
+    if path_allow:
+        with path_allow.open() as inf:
+            for line in inf:
+                allow_set.add(line.strip())
 
     with path_in.open() as inf, path_out.open("w") as outf:
         for line in inf:
@@ -52,7 +51,7 @@ def operation(
                 continue
             if exclude(pair[0], pair[1]):
                 continue
-            if pair[0] in ALLOW_SET:
+            if pair[0] in allow_set:
                 continue
 
             err_char: bool = False
@@ -82,6 +81,7 @@ def get_opts() -> argparse.Namespace:
     oparser.add_argument(
         "--output", "-o", type=Path, default="/dev/stdout", required=False
     )
+    oparser.add_argument("--allow", type=Path, required=False)
     oparser.add_argument(
         "--distance",
         type=int,
@@ -107,6 +107,7 @@ def main() -> None:
         opts.input,
         opts.output,
         opts.word,
+        opts.allow,
         opts.distance,
         opts.freq,
         opts.length,

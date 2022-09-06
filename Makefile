@@ -16,10 +16,14 @@ $(TYPOS_CANDIDATES): $(ORIGINAL)
 NEW_TYPOS:=new_typos.csv
 ENG_WORDS:=./english-words/words.txt
 FILTER_OPTION:=
+ALLOW_OPTION:=--allow allow.txt
 
 newtypos: $(NEW_TYPOS) $(ENG_WORDS)
 $(NEW_TYPOS): $(TYPOS_CANDIDATES)
-	gzip -cd $(TYPOS_CANDIDATES) | python ./filter.py --word $(ENG_WORDS) $(FILTER_OPTION) > $(NEW_TYPOS)
+	gzip -cd $(TYPOS_CANDIDATES) \
+		| python ./filter.py \
+		--word $(ENG_WORDS) $(FILTER_OPTION) \
+		$(ALLOW_OPTION) > $(NEW_TYPOS)
 
 NEW:=new_words.csv
 new: $(NEW)
