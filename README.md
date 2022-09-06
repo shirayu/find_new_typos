@@ -14,6 +14,7 @@ wget https://github-typo-corpus.s3.amazonaws.com/data/github-typo-corpus.v1.0.0.
 ## How to work
 
 ```bash
+make clean
 poetry run make FILTER_OPTION="--length 5 --freq 5 --distance 2"
 ```
 
