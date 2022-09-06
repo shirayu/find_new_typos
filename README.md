@@ -20,7 +20,7 @@ poetry run make FILTER_OPTION="--length 5 --freq 5 --distance 2"
 
 - ``typos.candidates.gz``: Candidates of typos
 - ``new_typos.csv``: New typos
-- ``new_words.csv``: New ``words.csv`` for [crate-ci/typos](https://github.com/crate-ci/typos)
+- ``new_words.csv``: New ``typos/crates/typos-dict/assets/words.csv`` for [crate-ci/typos](https://github.com/crate-ci/typos)
 
 Update ``new_typos.csv`` manually and re-run ``make``.
 
