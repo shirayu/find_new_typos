@@ -5,8 +5,8 @@ description = ""
 authors = ["Yuta Hayashibe <yuta@hayashibe.jp>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-Levenshtein = "^0.18.1"
+python = "^3.11"
+Levenshtein = "^0.25.1"
 Inflector = "^3.0.1"
 
 [tool.poetry.dev-dependencies]
