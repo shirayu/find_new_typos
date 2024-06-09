@@ -7,6 +7,10 @@ by using [GitHub Typo Corpus](https://github.com/mhagiwara/github-typo-corpus)
 ## Preparation
 
 ```bash
+git clone https://github.com/shirayu/find_new_typos
+cd find_new_typos
+
+git submodule update --init --recursive
 poetry install --only main
 wget https://github-typo-corpus.s3.amazonaws.com/data/github-typo-corpus.v1.0.0.jsonl.gz
 ```
